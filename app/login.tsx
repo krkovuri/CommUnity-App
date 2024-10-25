@@ -59,7 +59,7 @@ export default function LoginScreen() {
             <Text style={styles.label}>Email Address</Text>
             <TextInput
               style={styles.input}
-              placeholder="john@example.com"
+              placeholder="name@example.com"
               keyboardType="email-address"
               placeholderTextColor="#808080"
               onFocus={handleFocus} // Set focus state
@@ -79,7 +79,9 @@ export default function LoginScreen() {
 
           {/* Sign In Button */}
           <TouchableOpacity style={styles.button} activeOpacity={0.4}>
-            <Text style={styles.buttonText}>Enter your CommUnity!</Text>
+            <Link href="/(tabs)" style={styles.buttonText}>
+              Enter your CommUnity!
+            </Link>
           </TouchableOpacity>
 
           {/* Sign up link */}

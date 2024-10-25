@@ -9,12 +9,13 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function SignUpScreen() {
   // State to manage the visibility of the welcome text
   const [isInputFocused, setInputFocused] = useState(false);
+  const router = useRouter(); // Use router to navigate programmatically
 
   // Function to handle focus on input
   const handleFocus = () => {
@@ -24,6 +25,12 @@ export default function SignUpScreen() {
   // Function to handle blur from input
   const handleBlur = () => {
     setInputFocused(false);
+  };
+
+  // Function to handle sign up button press
+  const handleSignUp = () => {
+    // Navigate to the home screen (or any other destination)
+    router.push('/(tabs)');
   };
 
   return (
@@ -89,7 +96,11 @@ export default function SignUpScreen() {
           </View>
 
           {/* Sign Up Button */}
-          <TouchableOpacity style={styles.button} activeOpacity={0.4}>
+          <TouchableOpacity
+            style={styles.button}
+            activeOpacity={0.4}
+            onPress={handleSignUp} // Navigate on button press
+          >
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
 
